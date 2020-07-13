@@ -6,6 +6,18 @@
 
 // @lc code=start
 
+//暴力法
+public class Solution {
+    public bool IsValid(string s) {
+        if (s.Length % 2 != 0) return false;//不是成对数的直接pass
+        //看有多少对，遍历所有对数，替换掉所有的括号种类为空
+        int t = s.Length/2;
+        while (t-- > 0)
+            s = s.Replace("()","").Replace("{}","").Replace("[]","");
+        return s.Length == 0;
+    }
+}
+
 //栈
 public class Solution {
     public bool IsValid(string s) {
@@ -27,5 +39,7 @@ public class Solution {
         return stack.Count == 0;
     }
 }
+
+
 // @lc code=end
 
